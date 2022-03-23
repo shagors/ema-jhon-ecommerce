@@ -9,7 +9,8 @@ const Cart = ({cart}) => {
         total = total + product.price;
         shipping = shipping + product.shipping;
     }
-    const tax = (total * 0.1).toFixed(2);
+    const tax = parseFloat((total * 0.1).toFixed(2));
+    const grandTotal = total + shipping + tax;
     return (
         <div className='cart'>
             <h4>Order summery</h4>
@@ -17,7 +18,7 @@ const Cart = ({cart}) => {
             <p>Total price : ${total}</p>
             <p>Total shipping : ${shipping}</p>
             <p>Tax : ${tax}</p>
-            <h5>Grand Total : ${}</h5>
+            <h5>Grand Total : ${grandTotal}</h5>
         </div>
     );
 };
